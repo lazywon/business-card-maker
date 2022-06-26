@@ -3,9 +3,9 @@ import styles from "./footer.module.css";
 
 const Footer = (props) => {
   return (
-    <div className={styles.footer}>
-      <p className={styles.text}>Copyright © Lazywon. All Rights Reserved.</p>
-    </div>
+    <footer className={styles.footer}>
+      <p className={styles.title}>Copyright © Lazywon. All Rights Reserved.</p>
+    </footer>
   );
 };
 
