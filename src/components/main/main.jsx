@@ -6,44 +6,11 @@ import { useNavigate } from "react-router-dom";
 import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
-const Main = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: "1",
-      name: "Lazy Won",
-      company: "Lazy Company",
-      theme: "dark",
-      title: "Frontend Dveloper",
-      email: "lazywon@gmail.com",
-      message: "I love coding",
-      fileName: "lazy",
-      fileUrl: null,
-    },
-    2: {
-      id: "2",
-      name: "Lazy Won2",
-      company: "Lazy Company2",
-      theme: "light",
-      title: "Backend Dveloper",
-      email: "lazywon2@gmail.com",
-      message: "I love coding :)",
-      fileName: "lazy2",
-      fileUrl: null,
-    },
-    3: {
-      id: "3",
-      name: "Lazy Won3",
-      company: "Lazy Company3",
-      theme: "colorful",
-      title: "Backend Dveloper",
-      email: "lazywon3@gmail.com",
-      message: "I love coding :)",
-      fileName: "lazy3",
-      fileUrl: null,
-    },
-  });
-
+const Main = ({ FileInput, authService, cardRepository }) => {
   const navigate = useNavigate();
+  const historyState = navigate?.location?.state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const onLogout = () => {
     authService //
@@ -51,8 +18,21 @@ const Main = ({ FileInput, authService }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, (cards) => {
+      setCards(cards);
+    });
+    return () => stopSync(); // 컴포넌트 unmount 되었을때 불필요한 네트워크 사용 종료
+  }, [userId]); // 사용자 id가 변경될 때마다 실행
+
+  useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+        console.log(userId);
+      } else {
         navigate("/");
       }
     });
@@ -74,6 +54,8 @@ const Main = ({ FileInput, authService }) => {
       updated[card.id] = card; //update되는 id를 이용해서 그 오브젝트 전체를 card로 변경(할당)해준다.
       return updated;
     });
+
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = (card) => {
@@ -84,6 +66,8 @@ const Main = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+
+    cardRepository.removeCard(userId, card);
   };
 
   return (

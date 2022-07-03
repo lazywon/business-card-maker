@@ -2,7 +2,7 @@
 
 .preview {
   flex-basis: 50%;
-  /* background-color: pink; */
+  overflow-y: auto; /*  스크롤링 되도록 */
 }
 
 .title {
