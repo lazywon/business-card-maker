@@ -25,18 +25,17 @@ const Main = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync(); // 컴포넌트 unmount 되었을때 불필요한 네트워크 사용 종료
-  }, [userId]); // 사용자 id가 변경될 때마다 실행
+  }, [userId, cardRepository]); // 사용자 id 혹은 cardRepository가 변경될 때마다 실행
 
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
         setUserId(user.uid);
-        console.log(userId);
       } else {
         navigate("/");
       }
     });
-  });
+  }, [authService, userId, navigate]);
 
   // const addCard = (card) => {
   //   console.log(card);

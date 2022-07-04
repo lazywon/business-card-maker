@@ -6,12 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Login = ({ authService }) => {
   const navigate = useNavigate();
+
   const goToMain = (userId) => {
     navigate({
       pathname: "/main",
       state: { id: userId },
     });
-    console.log(userId);
   };
 
   const onLogin = (event) => {
