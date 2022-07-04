@@ -1,4 +1,4 @@
-@value makerGreen, makerWhite, makerBlack, makerLightPink from '../../common/colors.css';
+@value makerLightBlue, makerWhite, makerBlack, makerLightPink from '../../common/colors.css';
 
 .login {
   width: 30em;
@@ -28,7 +28,7 @@
   border-radius: 1.2rem;
   background-color: transparent;
   cursor: pointer;
-  border: 0.2rem solid makerGreen;
+  border: 0.2rem solid makerLightBlue;
   outline: 0;
 }
 
