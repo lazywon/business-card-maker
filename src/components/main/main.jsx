@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./main.module.css";
 import Footer from "../footer/footer";
 import Header from "../header/header";
@@ -12,10 +12,10 @@ const Main = ({ FileInput, authService, cardRepository }) => {
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService //
       .logout();
-  };
+  }, [authService]);
 
   useEffect(() => {
     if (!userId) {
