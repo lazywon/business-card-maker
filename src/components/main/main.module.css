@@ -1,11 +1,11 @@
-@value makerWhite from '../../common/colors.css';
+@value makerLightPink, makerWhite, makerOrange from '../../common/colors.css';
 @value mediaQuery from '../../common/size.css';
 
 .maker {
   width: 100%;
   height: 100%;
   max-width: 80rem;
-  background-color: makerWhite;
+  background-color: makerLightPink;
   display: flex;
   flex-direction: column;
 }
@@ -14,6 +14,15 @@
   display: flex;
   flex: 1; /* 여백 가득 채우기 */
   min-height: 0;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: aliceblue;
 }
 
 @media screen and (max-width: mediaQuery) {

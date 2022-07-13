@@ -1,1 +1,5 @@
 @value mediaQuery: 62rem;
+
+@value mediaTablet: 800px;
+
+@value mediaMobile: 600px;

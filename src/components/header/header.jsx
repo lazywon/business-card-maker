@@ -9,8 +9,8 @@ const Header = memo(({ onLogout }) => {
           Logout
         </button>
       )}
-      <img className={styles.logo} src="/images/logo.png" alt="logo" />
-      <h1 className={styles.title}>Business Card Maker</h1>
+      {/* <img className={styles.logo} src="/images/logo.png" alt="logo" /> */}
+      <h1 className={styles.title}>Lazywon</h1>
     </header>
   );
 });

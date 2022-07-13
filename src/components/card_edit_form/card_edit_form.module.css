@@ -1,11 +1,11 @@
-@value makerBlack, makerWhite from '../../common/colors.css';
+@value makerOrange, makerLightGrey, makerBlack, makerWhite from '../../common/colors.css';
 
 .form {
   display: flex;
   width: 100%;
   flex-wrap: wrap; /* 아이템 넓이가 넓으면 한줄에 하나씩 떨어지도록 랩 */
-  border-top: 1px solid makerBlack;
-  border-left: 1px solid makerBlack;
+  border-top: 1px solid makerOrange;
+  border-left: 1px solid makerOrange;
   margin-bottom: 1em;
 }
 
@@ -18,8 +18,8 @@
   width: 100%;
   border: 0;
   padding: 0.5em;
-  border-bottom: 1px solid makerBlack;
-  border-right: 1px solid makerBlack;
+  border-bottom: 1px solid makerOrange;
+  border-right: 1px solid makerOrange;
   background: makerWhite;
 }
 

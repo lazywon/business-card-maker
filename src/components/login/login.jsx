@@ -29,17 +29,27 @@ const Login = ({ authService }) => {
 
   return (
     <section className={styles.login}>
-      <Header />
+      {/* <Header /> */}
       <section>
-        <h1>Login</h1>
+        <h1 className={styles.loginTitle}>Login</h1>
         <ul className={styles.list}>
           <li className={styles.item}>
             <button className={styles.button} onClick={onLogin}>
+              <img
+                className={styles.logo}
+                src="/images/google_logo.png"
+                alt="google"
+              ></img>
               Google
             </button>
           </li>
           <li className={styles.item}>
             <button className={styles.button} onClick={onLogin}>
+              <img
+                className={styles.logo}
+                src="/images/github_logo.png"
+                alt="github"
+              ></img>
               Github
             </button>
           </li>

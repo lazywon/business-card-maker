@@ -1,9 +1,11 @@
-@value makerLightBlue, makerWhite from '../../common/colors.css';
+@value makerLightBlue, makerBlue, makerWhite from '../../common/colors.css';
 
 .footer {
   width: 100%;
-  background-color: makerLightBlue;
+  background-color: makerBlue;
   text-align: center;
+  border-radius: 0 0 30px 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .title {

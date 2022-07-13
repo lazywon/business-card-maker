@@ -1,13 +1,22 @@
-@value makerWhite, makerLightBlue from '../../common/colors.css';
+@value makerBlue, makerRed, makerWhite, makerLightBlue from '../../common/colors.css';
 
 .button {
-  background-color: makerLightBlue;
+  /* background-color: makerBlue; */
   color: makerWhite;
   font-weight: bold;
   cursor: pointer;
   padding: 0.5em;
   flex: 1 1 50%;
   font-size: 0.8rem;
+  border: none;
+}
+
+.button.delete {
+  background-color: makerBlue;
+}
+
+.button.add {
+  background-color: makerRed;
 }
 
 .button:hover {

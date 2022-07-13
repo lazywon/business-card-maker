@@ -82,7 +82,7 @@ const Main = ({ FileInput, authService, cardRepository }) => {
         />
         <Preview cards={cards} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 };
