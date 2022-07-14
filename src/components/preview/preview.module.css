@@ -1,15 +1,15 @@
 @value makerLightBlue, makerBlue from '../../common/colors.css';
-@value mediaQuery from '../../common/size.css';
+@value mediaMobile, mediaQuery from '../../common/size.css';
 
 .preview {
   position: relative;
+  padding: 1.5em 2.8em;
   flex-basis: 50%;
   overflow-y: auto; /*  스크롤링 되도록 */
 }
 
 .title {
   width: 100%;
-  /* margin-top: 1.5em; */
   text-align: center;
   margin-bottom: 1em;
   color: makerBlue;
@@ -17,17 +17,22 @@
 }
 
 .cards {
-  width: 100%;
+  width: 500px;
   height: 100%;
-  padding: 0.5em 2em;
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  /* display: flex;
+  flex-direction: column; */
   align-items: center;
   justify-content: center;
 }
 
-@media screen and (max-width: mediaQuery) {
+@media screen and (max-width: mediaMobile) {
   .preview {
-    /* overflow-y: visible; */
+    padding: 1.5em 0;
+  }
+
+  .cards {
+    width: 360px;
   }
 }

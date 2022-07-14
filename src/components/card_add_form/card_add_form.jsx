@@ -10,6 +10,7 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const titleRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  const mottoRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileUrl: null });
 
   const onFileChange = (file) => {
@@ -31,6 +32,7 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
       message: messageRef.current.value || "",
       fileName: file.fileName || "",
       fileUrl: file.fileUrl || "",
+      motto: mottoRef.current.value || "",
     };
 
     formRef.current.reset(); // 입력해서 제출하면 폼 리셋
@@ -71,6 +73,13 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         type="text"
         name="email"
         placeholder="Email"
+      />
+      <input
+        ref={mottoRef}
+        className={styles.input}
+        type="text"
+        name="motto"
+        placeholder="Motto"
       />
       <textarea
         ref={messageRef}

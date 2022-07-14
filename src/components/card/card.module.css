@@ -1,13 +1,12 @@
 @value makerBlack, makerWhite, makerColorful, makerShadow, makerWheat from '../../common/colors.css';
+@value mediaMobile, mediaQuery from '../../common/size.css';
 
 .container {
   width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  /* margin-bottom: 0.5em; */
-  /* padding: 0.2em 0; */
+  height: 175px;
+  margin-bottom: 1em;
   perspective: 1100px;
+  list-style: none;
 }
 
 .container .flip {
@@ -38,6 +37,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   border-radius: 1em;
   margin-bottom: 0.5em;
   padding: 0.2em 0;
@@ -72,7 +72,8 @@
 .info {
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
+  word-break: break-all;
+  padding: 0.6em;
 }
 
 .name,
@@ -80,12 +81,13 @@
 .title,
 .email,
 .message {
-  margin: 0;
+  margin: 3px;
   font-size: 0.8rem;
   margin-bottom: 0.2em;
 }
 
 .name {
+  margin-top: 0.6em;
   font-size: 1.2rem;
 }
 
@@ -100,4 +102,32 @@
   height: 2px;
   background-color: makerWheat;
   transform: translateY(0.5em);
+}
+
+.motto {
+  padding: 1em;
+  margin: 0;
+  font-size: 3em;
+  font-family: "Last Ninja", Impact, fantasy;
+}
+
+@media screen and (max-width: mediaMobile) {
+  .container {
+    height: 160px;
+  }
+
+  .avatar {
+    padding: 0.5em;
+    margin-right: 0.5em;
+    width: 7em;
+    height: 7em;
+  }
+
+  .name {
+    font-size: 1rem;
+  }
+
+  .motto {
+    font-size: 2em;
+  }
 }

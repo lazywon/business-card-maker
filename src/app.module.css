@@ -1,6 +1,7 @@
 @value makerGrey from './common/colors.css';
 
 * {
+  /* margin: 0px; */
   box-sizing: border-box;
   font-family: "Cairo", sans-serif;
 }

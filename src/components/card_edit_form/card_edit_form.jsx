@@ -3,7 +3,7 @@ import styles from "./card_edit_form.module.css";
 import Button from "../button/button";
 
 const CardEditForm = memo(({ FileInput, card, updateCard, deleteCard }) => {
-  const { name, company, title, email, message, theme, fileName } = card;
+  const { name, company, title, email, message, theme, fileName, motto } = card;
 
   const onFileChange = (file) => {
     updateCard({
@@ -27,6 +27,7 @@ const CardEditForm = memo(({ FileInput, card, updateCard, deleteCard }) => {
   const onSubmit = () => {
     deleteCard(card);
   };
+
   return (
     <form className={styles.form}>
       <input
@@ -65,6 +66,13 @@ const CardEditForm = memo(({ FileInput, card, updateCard, deleteCard }) => {
         type="text"
         name="email"
         value={email}
+        onChange={onChange}
+      />
+      <input
+        className={styles.input}
+        type="text"
+        name="motto"
+        value={motto}
         onChange={onChange}
       />
       <textarea

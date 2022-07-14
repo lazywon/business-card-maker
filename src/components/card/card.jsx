@@ -4,12 +4,12 @@ import styles from "./card.module.css";
 const DEFAULT_IMAGE = "/images/default_logo.png";
 
 const Card = memo(({ card }) => {
-  const { name, company, title, email, message, theme, fileUrl } = card;
+  const { name, company, title, email, message, theme, fileUrl, motto } = card;
   const url = fileUrl || DEFAULT_IMAGE;
   return (
-    <div className={styles.container}>
+    <li className={styles.container}>
       <div className={`${styles.flip} ${styles.front}`}>
-        <li className={`${styles.card} ${getStyles(theme)}`}>
+        <div className={`${styles.card} ${getStyles(theme)}`}>
           <img className={styles.avatar} src={url} alt="profile" />
           <div className={styles.info}>
             <h1 className={styles.name}>{name}</h1>
@@ -18,21 +18,16 @@ const Card = memo(({ card }) => {
             <p className={styles.email}>{email}</p>
             <p className={styles.message}>{message}</p>
           </div>
-        </li>
+        </div>
       </div>
       <div className={`${styles.flip} ${styles.back}`}>
-        <li className={`${styles.card} ${getStyles(theme)}`}>
-          {/* <img className={styles.avatar} src={url} alt="profile" /> */}
+        <div className={`${styles.card} ${getStyles(theme)}`}>
           <div className={styles.info}>
-            {/* <h1 className={styles.name}>{name} BACK</h1>
-            <p className={styles.company}>{company}</p>
-            <p className={styles.title}>{title}</p>
-            <p className={styles.email}>{email}</p>
-            <p className={styles.message}>{message}</p> */}
+            <p className={styles.motto}>{motto}</p>
           </div>
-        </li>
+        </div>
       </div>
-    </div>
+    </li>
   );
 });
 
