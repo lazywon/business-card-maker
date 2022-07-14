@@ -2,6 +2,7 @@
 @value mediaQuery from '../../common/size.css';
 
 .preview {
+  position: relative;
   flex-basis: 50%;
   overflow-y: auto; /*  스크롤링 되도록 */
 }
@@ -22,6 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: mediaQuery) {

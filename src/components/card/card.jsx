@@ -7,16 +7,32 @@ const Card = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileUrl } = card;
   const url = fileUrl || DEFAULT_IMAGE;
   return (
-    <li className={`${styles.card} ${getStyles(theme)}`}>
-      <img className={styles.avatar} src={url} alt="profile" />
-      <div className={styles.info}>
-        <h1 className={styles.name}>{name}</h1>
-        <p className={styles.company}>{company}</p>
-        <p className={styles.title}>{title}</p>
-        <p className={styles.email}>{email}</p>
-        <p className={styles.message}>{message}</p>
+    <div className={styles.container}>
+      <div className={`${styles.flip} ${styles.front}`}>
+        <li className={`${styles.card} ${getStyles(theme)}`}>
+          <img className={styles.avatar} src={url} alt="profile" />
+          <div className={styles.info}>
+            <h1 className={styles.name}>{name}</h1>
+            <p className={styles.company}>{company}</p>
+            <p className={styles.title}>{title}</p>
+            <p className={styles.email}>{email}</p>
+            <p className={styles.message}>{message}</p>
+          </div>
+        </li>
       </div>
-    </li>
+      <div className={`${styles.flip} ${styles.back}`}>
+        <li className={`${styles.card} ${getStyles(theme)}`}>
+          {/* <img className={styles.avatar} src={url} alt="profile" /> */}
+          <div className={styles.info}>
+            {/* <h1 className={styles.name}>{name} BACK</h1>
+            <p className={styles.company}>{company}</p>
+            <p className={styles.title}>{title}</p>
+            <p className={styles.email}>{email}</p>
+            <p className={styles.message}>{message}</p> */}
+          </div>
+        </li>
+      </div>
+    </div>
   );
 });
 
