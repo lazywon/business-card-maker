@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import styles from "./login.module.css";
 import Footer from "../footer/footer";
-import Header from "../header/header";
+// import Header from "../header/header";
 import { useNavigate } from "react-router-dom";
 
 const Login = ({ authService }) => {
   const navigate = useNavigate();
 
-  const goToMain = (userId) => {
+  const goToMain = (userId, anonymous) => {
     navigate({
       pathname: "/main",
-      state: { id: userId },
+      state: {
+        id: userId,
+        anonymous: anonymous || false,
+      },
     });
   };
 
@@ -20,9 +23,21 @@ const Login = ({ authService }) => {
       .then((data) => goToMain(data.user.uid));
   };
 
+  const onLoginAnonymously = () => {
+    authService //
+      .loginAnonymously()
+      .then(alert("Non-Member Login does not save data."))
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMsg = error.message;
+        alert(`${errorCode} Error !! ${errorMsg}`);
+      });
+  };
+
   useEffect(() => {
     authService //
       .onAuthChange((user) => {
+        // 로그인 시 user 데이터 생성되며, 안했다면 user는 null이 된다.
         user && goToMain(user.uid);
       });
   });
@@ -51,6 +66,16 @@ const Login = ({ authService }) => {
                 alt="github"
               ></img>
               Github
+            </button>
+          </li>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLoginAnonymously}>
+              <img
+                className={styles.logo}
+                src="/images/non-member_logo.png"
+                alt="non-member"
+              ></img>
+              Non-Member
             </button>
           </li>
         </ul>

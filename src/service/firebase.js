@@ -11,9 +11,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
+// initializeApp을 하게 되면 firebase.app.App이라는 인터페이스를 리턴 받음.
 // const analytics = getAnalytics(app);
 
 export const firebaseAuth = firebaseApp.auth();
 export const firebaseDatabase = firebaseApp.database();
+
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 export const githubProvider = new firebase.auth.GithubAuthProvider();

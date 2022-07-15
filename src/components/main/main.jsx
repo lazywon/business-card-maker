@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import styles from "./main.module.css";
-import Footer from "../footer/footer";
+// import Footer from "../footer/footer";
 import Header from "../header/header";
 import { useNavigate } from "react-router-dom";
 import Editor from "../editor/editor";
