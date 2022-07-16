@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import styles from "./card.module.css";
 
-const DEFAULT_IMAGE = "/images/default_logo.png";
+const DEFAULT_IMAGE = "/images/user.png";
 
 const Card = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileUrl, motto } = card;
@@ -22,7 +22,7 @@ const Card = memo(({ card }) => {
       </div>
       <div className={`${styles.flip} ${styles.back}`}>
         <div className={`${styles.card} ${getStyles(theme)}`}>
-          <div className={styles.info}>
+          <div className={styles.backInfo}>
             <p className={styles.motto}>{motto}</p>
           </div>
         </div>
