@@ -83,9 +83,9 @@
 
 .name,
 .company,
-.title,
+.position,
 .email,
-.message {
+.mobile {
   margin: 3px;
   font-size: 0.8rem;
   margin-bottom: 0.2em;
@@ -107,6 +107,11 @@
   height: 2px;
   background-color: makerWheat;
   transform: translateY(0.5em);
+}
+
+.text {
+  margin-right: 1em;
+  font-weight: bold;
 }
 
 .backInfo {

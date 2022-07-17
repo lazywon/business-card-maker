@@ -4,7 +4,8 @@ import styles from "./card.module.css";
 const DEFAULT_IMAGE = "/images/user.png";
 
 const Card = memo(({ card }) => {
-  const { name, company, title, email, message, theme, fileUrl, motto } = card;
+  const { name, company, position, email, mobile, theme, fileUrl, motto } =
+    card;
   const url = fileUrl || DEFAULT_IMAGE;
   return (
     <li className={styles.container}>
@@ -14,9 +15,15 @@ const Card = memo(({ card }) => {
           <div className={styles.info}>
             <h1 className={styles.name}>{name}</h1>
             <p className={styles.company}>{company}</p>
-            <p className={styles.title}>{title}</p>
-            <p className={styles.email}>{email}</p>
-            <p className={styles.message}>{message}</p>
+            <p className={styles.position}>{position}</p>
+            <p className={styles.email}>
+              <span className={styles.text}>E</span>
+              {email}
+            </p>
+            <p className={styles.mobile}>
+              <span className={styles.text}>M</span>
+              {mobile}
+            </p>
           </div>
         </div>
       </div>

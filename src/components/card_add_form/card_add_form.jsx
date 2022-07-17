@@ -7,9 +7,10 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
   const nameRef = useRef();
   const companyRef = useRef();
   const themeRef = useRef();
-  const titleRef = useRef();
+  const positionRef = useRef();
   const emailRef = useRef();
-  const messageRef = useRef();
+  const mobileRef = useRef();
+  // const messageRef = useRef();
   const mottoRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileUrl: null });
 
@@ -27,9 +28,10 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
       name: nameRef.current.value || "",
       company: companyRef.current.value || "",
       theme: themeRef.current.value,
-      title: titleRef.current.value || "",
+      position: positionRef.current.value || "",
+      mobile: mobileRef.current.value || "",
       email: emailRef.current.value || "",
-      message: messageRef.current.value || "",
+      // message: messageRef.current.value || "",
       fileName: file.fileName || "",
       fileUrl: file.fileUrl || "",
       motto: mottoRef.current.value || "",
@@ -61,11 +63,11 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         <option value="colorful">colorful</option>
       </select>
       <input
-        ref={titleRef}
+        ref={positionRef}
         className={styles.input}
         type="text"
-        name="title"
-        placeholder="Title"
+        name="position"
+        placeholder="Position"
       />
       <input
         ref={emailRef}
@@ -75,17 +77,24 @@ const CardAddForm = memo(({ FileInput, onAdd }) => {
         placeholder="Email"
       />
       <input
+        ref={mobileRef}
+        className={styles.input}
+        type="text"
+        name="mobile"
+        placeholder="Mobile"
+      />
+      {/* <input
         ref={mottoRef}
         className={styles.input}
         type="text"
         name="motto"
         placeholder="Motto"
-      />
+      /> */}
       <textarea
-        ref={messageRef}
+        ref={mottoRef}
         className={styles.textarea}
-        name="message"
-        placeholder="Message"
+        name="motto"
+        placeholder="Motto"
       ></textarea>
       <div className={styles.fileInput}>
         <FileInput name={file.fileName} onFileChange={onFileChange} />
